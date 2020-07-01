@@ -33,16 +33,14 @@ function init() {
   loader.setTranscoderPath('/basis/')
   loader.detectSupport(renderer)
   loader.load(
-    '/v1rtl.basis',
-    function (texture) {
+    '/provalwiki.basis',
+    texture => {
       texture.encoding = THREE.sRGBEncoding
       material.map = texture
       material.needsUpdate = true
     },
     undefined,
-    function (error) {
-      console.error(error)
-    }
+    error => console.error(error)
   )
 
   window.addEventListener('resize', onWindowResize, false)
